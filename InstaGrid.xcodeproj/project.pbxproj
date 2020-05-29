@@ -13,6 +13,8 @@
 		9E2661852480DB1400041A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2661832480DB1400041A60 /* Main.storyboard */; };
 		9E2661872480DB1500041A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2661862480DB1500041A60 /* Assets.xcassets */; };
 		9E26618A2480DB1500041A60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2661882480DB1500041A60 /* LaunchScreen.storyboard */; };
+		9E2890D92480E3740040EA0D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890D82480E3740040EA0D /* Delm-Medium.otf */; };
+		9E2890DB2480E3800040EA0D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		9E2661892480DB1500041A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E26618B2480DB1500041A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E2661952480DB8600041A60 /* InstaGrid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaGrid.entitlements; sourceTree = "<group>"; };
+		9E2890D82480E3740040EA0D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		9E2661942480DB6700041A60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E2890D72480E35A0040EA0D /* Fonts */,
 				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
 				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
 				9E2661862480DB1500041A60 /* Assets.xcassets */,
@@ -99,6 +104,15 @@
 				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9E2890D72480E35A0040EA0D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9E2890D82480E3740040EA0D /* Delm-Medium.otf */,
+				9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +175,8 @@
 			files = (
 				9E26618A2480DB1500041A60 /* LaunchScreen.storyboard in Resources */,
 				9E2661872480DB1500041A60 /* Assets.xcassets in Resources */,
+				9E2890DB2480E3800040EA0D /* ThirstySoftRegular.otf in Resources */,
+				9E2890D92480E3740040EA0D /* Delm-Medium.otf in Resources */,
 				9E2661852480DB1400041A60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
