@@ -15,6 +15,7 @@
 		9E26618A2480DB1500041A60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2661882480DB1500041A60 /* LaunchScreen.storyboard */; };
 		9E2890D92480E3740040EA0D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890D82480E3740040EA0D /* Delm-Medium.otf */; };
 		9E2890DB2480E3800040EA0D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */; };
+		9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2890DC2480E64D0040EA0D /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9E2661952480DB8600041A60 /* InstaGrid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaGrid.entitlements; sourceTree = "<group>"; };
 		9E2890D82480E3740040EA0D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		9E2890DC2480E64D0040EA0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				9E2661862480DB1500041A60 /* Assets.xcassets */,
 				9E26618B2480DB1500041A60 /* Info.plist */,
 				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
+				9E2890DC2480E64D0040EA0D /* Colors.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E2661822480DB1400041A60 /* ViewController.swift in Sources */,
+				9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */,
 				9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */,
 				9E2661802480DB1400041A60 /* SceneDelegate.swift in Sources */,
 			);
