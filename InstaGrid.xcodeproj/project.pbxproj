@@ -24,6 +24,7 @@
 		9E2661862480DB1500041A60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2661892480DB1500041A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E26618B2480DB1500041A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E2661952480DB8600041A60 /* InstaGrid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstaGrid.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +57,48 @@
 		9E26617C2480DB1400041A60 /* InstaGrid */ = {
 			isa = PBXGroup;
 			children = (
-				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
-				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
-				9E2661812480DB1400041A60 /* ViewController.swift */,
-				9E2661832480DB1400041A60 /* Main.storyboard */,
-				9E2661862480DB1500041A60 /* Assets.xcassets */,
-				9E2661882480DB1500041A60 /* LaunchScreen.storyboard */,
-				9E26618B2480DB1500041A60 /* Info.plist */,
+				9E2661932480DB5600041A60 /* Controller */,
+				9E2661922480DB4D00041A60 /* View */,
+				9E2661912480DB2200041A60 /* Model */,
+				9E2661942480DB6700041A60 /* Supporting Files */,
 			);
 			path = InstaGrid;
+			sourceTree = "<group>";
+		};
+		9E2661912480DB2200041A60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E2661922480DB4D00041A60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E2661882480DB1500041A60 /* LaunchScreen.storyboard */,
+				9E2661832480DB1400041A60 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E2661932480DB5600041A60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E2661812480DB1400041A60 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E2661942480DB6700041A60 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
+				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
+				9E2661862480DB1500041A60 /* Assets.xcassets */,
+				9E26618B2480DB1500041A60 /* Info.plist */,
+				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,15 +318,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "InstaGrid/Supporting Files/InstaGrid.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AK5LKH3G6H;
-				INFOPLIST_FILE = InstaGrid/Info.plist;
+				INFOPLIST_FILE = "InstaGrid/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lomigenfroy.InstaGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,15 +338,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "InstaGrid/Supporting Files/InstaGrid.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AK5LKH3G6H;
-				INFOPLIST_FILE = InstaGrid/Info.plist;
+				INFOPLIST_FILE = "InstaGrid/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lomigenfroy.InstaGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
