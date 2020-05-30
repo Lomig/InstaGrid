@@ -16,6 +16,9 @@
 		9E2890D92480E3740040EA0D /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890D82480E3740040EA0D /* Delm-Medium.otf */; };
 		9E2890DB2480E3800040EA0D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */; };
 		9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2890DC2480E64D0040EA0D /* Colors.swift */; };
+		9E2890DF2480EAEF0040EA0D /* Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2890DE2480EAEF0040EA0D /* Collage.swift */; };
+		9EC7A4352480F93F001E7418 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7A4342480F93F001E7418 /* Layout.swift */; };
+		9EC7A437248100B6001E7418 /* PicturePlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		9E2890D82480E3740040EA0D /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		9E2890DC2480E64D0040EA0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9E2890DE2480EAEF0040EA0D /* Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Collage.swift; path = InstaGrid/Model/Collage.swift; sourceTree = SOURCE_ROOT; };
+		9EC7A4342480F93F001E7418 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePlaceholder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +71,10 @@
 			children = (
 				9E2661932480DB5600041A60 /* Controller */,
 				9E2661922480DB4D00041A60 /* View */,
-				9E2661912480DB2200041A60 /* Model */,
+				9E5717F12482382D0094C2E3 /* Model */,
 				9E2661942480DB6700041A60 /* Supporting Files */,
 			);
 			path = InstaGrid;
-			sourceTree = "<group>";
-		};
-		9E2661912480DB2200041A60 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9E2661922480DB4D00041A60 /* View */ = {
@@ -83,6 +82,8 @@
 			children = (
 				9E2661882480DB1500041A60 /* LaunchScreen.storyboard */,
 				9E2661832480DB1400041A60 /* Main.storyboard */,
+				9EC7A4342480F93F001E7418 /* Layout.swift */,
+				9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,13 +99,13 @@
 		9E2661942480DB6700041A60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E2890DC2480E64D0040EA0D /* Colors.swift */,
 				9E2890D72480E35A0040EA0D /* Fonts */,
-				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
-				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
 				9E2661862480DB1500041A60 /* Assets.xcassets */,
 				9E26618B2480DB1500041A60 /* Info.plist */,
+				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
+				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
 				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
-				9E2890DC2480E64D0040EA0D /* Colors.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,6 +117,14 @@
 				9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9E5717F12482382D0094C2E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E2890DE2480EAEF0040EA0D /* Collage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +203,9 @@
 				9E2661822480DB1400041A60 /* ViewController.swift in Sources */,
 				9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */,
 				9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */,
+				9E2890DF2480EAEF0040EA0D /* Collage.swift in Sources */,
+				9EC7A437248100B6001E7418 /* PicturePlaceholder.swift in Sources */,
+				9EC7A4352480F93F001E7418 /* Layout.swift in Sources */,
 				9E2661802480DB1400041A60 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
