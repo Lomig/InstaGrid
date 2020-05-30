@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var collage: Collage = Collage()
+    @IBOutlet var layout: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        newCollage()
     }
 
+    func newCollage() {
 
+    }
 }
 
