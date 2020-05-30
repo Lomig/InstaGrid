@@ -1,24 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Delm-Medium.otf">
+            <string>Delm-Medium</string>
+        </array>
+        <array key="ThirstySoftRegular.otf">
+            <string>ThirstySoftRegular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-tL-KHq">
+                                <rect key="frame" x="144.5" y="52" width="125" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="fLc-63-oXr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-9H-zO1">
+                                <rect key="frame" x="119.5" y="253" width="175" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="2Y3-12-f5y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lre-FW-jlf" customClass="Layout">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcX-OE-Q6e" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="290" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahi-Ks-XIC">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="g9C-Od-SZL">
+                                                <rect key="frame" x="125" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="QdH-dV-vYQ"/>
+                                                    <constraint firstAttribute="height" constant="40" id="rQY-WV-hFJ"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ahi-Ks-XIC" secondAttribute="trailing" id="3gV-pY-yBl"/>
+                                            <constraint firstItem="g9C-Od-SZL" firstAttribute="centerY" secondItem="vcX-OE-Q6e" secondAttribute="centerY" id="8PO-Tq-jAb"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ahi-Ks-XIC" secondAttribute="bottom" id="PfR-8y-2NM"/>
+                                            <constraint firstItem="Ahi-Ks-XIC" firstAttribute="leading" secondItem="vcX-OE-Q6e" secondAttribute="leading" id="oGX-8h-9e5"/>
+                                            <constraint firstItem="g9C-Od-SZL" firstAttribute="centerX" secondItem="vcX-OE-Q6e" secondAttribute="centerX" id="poT-jc-1a7"/>
+                                            <constraint firstItem="Ahi-Ks-XIC" firstAttribute="top" secondItem="vcX-OE-Q6e" secondAttribute="top" id="qIl-VS-yMW"/>
+                                            <constraint firstAttribute="height" constant="142" id="rff-MS-NNL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="Ahi-Ks-XIC" id="LxQ-3b-DV8"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="SBk-0q-qMr"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nih-Td-ebs" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="153" width="290" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YZP-QB-3Dm">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="354-kK-kXm">
+                                                <rect key="frame" x="125" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="LS6-I6-2Fa"/>
+                                                    <constraint firstAttribute="width" constant="40" id="Xxd-nk-Wbd"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="142" id="4eq-Rm-DjC"/>
+                                            <constraint firstItem="354-kK-kXm" firstAttribute="centerX" secondItem="nih-Td-ebs" secondAttribute="centerX" id="7Q6-y3-Mes"/>
+                                            <constraint firstAttribute="bottom" secondItem="YZP-QB-3Dm" secondAttribute="bottom" id="M3F-rf-8Ex"/>
+                                            <constraint firstAttribute="trailing" secondItem="YZP-QB-3Dm" secondAttribute="trailing" id="azG-7i-b3Y"/>
+                                            <constraint firstItem="YZP-QB-3Dm" firstAttribute="leading" secondItem="nih-Td-ebs" secondAttribute="leading" id="ngh-k7-8y9"/>
+                                            <constraint firstItem="YZP-QB-3Dm" firstAttribute="top" secondItem="nih-Td-ebs" secondAttribute="top" id="qPs-HW-bHC"/>
+                                            <constraint firstItem="354-kK-kXm" firstAttribute="centerY" secondItem="nih-Td-ebs" secondAttribute="centerY" id="up3-KE-AKL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="4ej-e5-ELK" id="y5M-wf-1oS"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="Yfx-o7-C1b"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ei-kV-lZz" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="142" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxP-JV-IXy">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="NXq-m2-QqE">
+                                                <rect key="frame" x="51" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Lad-pe-del"/>
+                                                    <constraint firstAttribute="width" constant="40" id="Z3j-th-NWe"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6Ei-kV-lZz" secondAttribute="height" multiplier="1:1" id="F9N-9A-c3F"/>
+                                            <constraint firstAttribute="trailing" secondItem="LxP-JV-IXy" secondAttribute="trailing" id="Idh-5d-4JX"/>
+                                            <constraint firstItem="NXq-m2-QqE" firstAttribute="centerY" secondItem="6Ei-kV-lZz" secondAttribute="centerY" id="Moa-tn-wFi"/>
+                                            <constraint firstItem="LxP-JV-IXy" firstAttribute="leading" secondItem="6Ei-kV-lZz" secondAttribute="leading" id="Qa1-NL-ljP"/>
+                                            <constraint firstAttribute="bottom" secondItem="LxP-JV-IXy" secondAttribute="bottom" id="WD4-Dk-RTu"/>
+                                            <constraint firstItem="NXq-m2-QqE" firstAttribute="centerX" secondItem="6Ei-kV-lZz" secondAttribute="centerX" id="gIs-WC-Ik5"/>
+                                            <constraint firstAttribute="width" constant="142" id="sqw-E4-oTQ"/>
+                                            <constraint firstItem="LxP-JV-IXy" firstAttribute="top" secondItem="6Ei-kV-lZz" secondAttribute="top" id="t1Z-qq-7Dj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="aYV-03-DAl" id="1zb-Tu-oo5"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="eNq-fZ-VOy"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-af-Ask" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="153" y="5" width="142" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-wk-vLB">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-DI-rsv">
+                                                <rect key="frame" x="51" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="6aW-Zt-Kyl"/>
+                                                    <constraint firstAttribute="width" constant="40" id="Ug5-PK-aKl"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="142" id="4jv-0u-ZbF"/>
+                                            <constraint firstItem="BRs-wk-vLB" firstAttribute="leading" secondItem="ecs-af-Ask" secondAttribute="leading" id="7qZ-YA-gg8"/>
+                                            <constraint firstAttribute="trailing" secondItem="BRs-wk-vLB" secondAttribute="trailing" id="Lam-KE-RtC"/>
+                                            <constraint firstItem="hLM-DI-rsv" firstAttribute="centerY" secondItem="ecs-af-Ask" secondAttribute="centerY" id="Mun-Jh-np0"/>
+                                            <constraint firstAttribute="bottom" secondItem="BRs-wk-vLB" secondAttribute="bottom" id="YMt-xy-Hjj"/>
+                                            <constraint firstAttribute="width" secondItem="ecs-af-Ask" secondAttribute="height" multiplier="1:1" id="gow-hC-XnW"/>
+                                            <constraint firstItem="BRs-wk-vLB" firstAttribute="top" secondItem="ecs-af-Ask" secondAttribute="top" id="pTw-gY-cdg"/>
+                                            <constraint firstItem="hLM-DI-rsv" firstAttribute="centerX" secondItem="ecs-af-Ask" secondAttribute="centerX" id="vta-AN-N52"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="BRs-wk-vLB" id="HXl-2b-4ah"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="9Z7-Y5-gEA"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rR9-uc-b9c" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="153" width="142" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ej-e5-ELK">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="ng3-FP-wu3">
+                                                <rect key="frame" x="51" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="8JI-Qe-4IL"/>
+                                                    <constraint firstAttribute="height" constant="40" id="vIH-Uf-kz8"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="4ej-e5-ELK" firstAttribute="top" secondItem="rR9-uc-b9c" secondAttribute="top" id="AXf-oi-7MD"/>
+                                            <constraint firstAttribute="trailing" secondItem="4ej-e5-ELK" secondAttribute="trailing" id="Fhm-uB-Wfn"/>
+                                            <constraint firstAttribute="width" constant="142" id="QKL-h9-r1N"/>
+                                            <constraint firstItem="ng3-FP-wu3" firstAttribute="centerX" secondItem="rR9-uc-b9c" secondAttribute="centerX" id="Xzb-qQ-Iki"/>
+                                            <constraint firstItem="4ej-e5-ELK" firstAttribute="leading" secondItem="rR9-uc-b9c" secondAttribute="leading" id="bdc-iC-kO3"/>
+                                            <constraint firstItem="ng3-FP-wu3" firstAttribute="centerY" secondItem="rR9-uc-b9c" secondAttribute="centerY" id="cez-8t-COs"/>
+                                            <constraint firstAttribute="bottom" secondItem="4ej-e5-ELK" secondAttribute="bottom" id="dNL-bK-NtW"/>
+                                            <constraint firstAttribute="width" secondItem="rR9-uc-b9c" secondAttribute="height" multiplier="1:1" id="yKQ-W4-uN6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="YZP-QB-3Dm" id="hbb-Zz-vGP"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="Ri5-KU-zy0"/>
+                                        </connections>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ck1-ey-pcB" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
+                                        <rect key="frame" x="153" y="153" width="142" height="142"/>
+                                        <subviews>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-03-DAl">
+                                                <rect key="frame" x="0.0" y="0.0" width="142" height="142"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="Gqe-4j-OYt">
+                                                <rect key="frame" x="51" y="51" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="YaD-H4-DsA"/>
+                                                    <constraint firstAttribute="height" constant="40" id="yVW-tE-SlF"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="aYV-03-DAl" secondAttribute="trailing" id="Nib-RB-tXg"/>
+                                            <constraint firstItem="aYV-03-DAl" firstAttribute="leading" secondItem="ck1-ey-pcB" secondAttribute="leading" id="dWH-1y-jwt"/>
+                                            <constraint firstAttribute="width" secondItem="ck1-ey-pcB" secondAttribute="height" multiplier="1:1" id="eZo-tm-WaA"/>
+                                            <constraint firstAttribute="width" constant="142" id="gNg-ux-AJy"/>
+                                            <constraint firstItem="aYV-03-DAl" firstAttribute="top" secondItem="ck1-ey-pcB" secondAttribute="top" id="guS-6D-nTM"/>
+                                            <constraint firstItem="Gqe-4j-OYt" firstAttribute="centerY" secondItem="ck1-ey-pcB" secondAttribute="centerY" id="h3A-dO-TZp"/>
+                                            <constraint firstItem="Gqe-4j-OYt" firstAttribute="centerX" secondItem="ck1-ey-pcB" secondAttribute="centerX" id="nI3-9z-37d"/>
+                                            <constraint firstAttribute="bottom" secondItem="aYV-03-DAl" secondAttribute="bottom" id="zzk-JX-La1"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="LxP-JV-IXy" id="yJj-py-i0A"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="dvo-Hu-DFe"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6Ei-kV-lZz" firstAttribute="leading" secondItem="lre-FW-jlf" secondAttribute="leading" constant="5" id="2Nb-OK-e1M"/>
+                                    <constraint firstItem="ecs-af-Ask" firstAttribute="top" secondItem="lre-FW-jlf" secondAttribute="top" constant="5" id="2Xr-6Z-BeL"/>
+                                    <constraint firstItem="vcX-OE-Q6e" firstAttribute="leading" secondItem="lre-FW-jlf" secondAttribute="leading" constant="5" id="613-7H-qdb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ck1-ey-pcB" secondAttribute="trailing" constant="5" id="HjS-8r-DWn"/>
+                                    <constraint firstAttribute="width" secondItem="lre-FW-jlf" secondAttribute="height" multiplier="1:1" id="IFq-4N-0Kz"/>
+                                    <constraint firstItem="rR9-uc-b9c" firstAttribute="leading" secondItem="lre-FW-jlf" secondAttribute="leading" constant="5" id="MCv-lA-IXI"/>
+                                    <constraint firstItem="nih-Td-ebs" firstAttribute="leading" secondItem="lre-FW-jlf" secondAttribute="leading" constant="5" id="Oef-3V-dZD"/>
+                                    <constraint firstAttribute="trailing" secondItem="vcX-OE-Q6e" secondAttribute="trailing" constant="5" id="Qg8-xO-eKY"/>
+                                    <constraint firstAttribute="trailing" secondItem="nih-Td-ebs" secondAttribute="trailing" constant="5" id="b5C-tK-cDx"/>
+                                    <constraint firstItem="vcX-OE-Q6e" firstAttribute="top" secondItem="lre-FW-jlf" secondAttribute="top" constant="5" id="bOn-62-qRK"/>
+                                    <constraint firstAttribute="bottom" secondItem="rR9-uc-b9c" secondAttribute="bottom" constant="5" id="kUq-uf-tHh"/>
+                                    <constraint firstAttribute="width" constant="300" id="lBS-v7-qb1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ck1-ey-pcB" secondAttribute="bottom" constant="5" id="lls-S5-u2m"/>
+                                    <constraint firstItem="6Ei-kV-lZz" firstAttribute="top" secondItem="lre-FW-jlf" secondAttribute="top" constant="5" id="o2G-Qp-eGk"/>
+                                    <constraint firstAttribute="bottom" secondItem="nih-Td-ebs" secondAttribute="bottom" constant="5" id="qcg-hk-kkC"/>
+                                    <constraint firstAttribute="trailing" secondItem="ecs-af-Ask" secondAttribute="trailing" constant="5" id="ubl-6h-BQX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="largePicture1" destination="vcX-OE-Q6e" id="Yqe-FM-GWa"/>
+                                    <outlet property="largePicture_2" destination="nih-Td-ebs" id="ff8-Ko-l6K"/>
+                                    <outlet property="smallPicture_1" destination="6Ei-kV-lZz" id="2uX-Zi-Tbz"/>
+                                    <outlet property="smallPicture_2" destination="ecs-af-Ask" id="Jkr-tT-FtU"/>
+                                    <outlet property="smallPicture_3" destination="rR9-uc-b9c" id="CJZ-ZT-u2P"/>
+                                    <outlet property="smallPicture_4" destination="ck1-ey-pcB" id="ppZ-bc-OVz"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lre-FW-jlf" firstAttribute="top" secondItem="iEA-9H-zO1" secondAttribute="bottom" constant="16" id="2A1-Te-mqJ"/>
+                            <constraint firstItem="lre-FW-jlf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ChJ-ox-fEc"/>
+                            <constraint firstItem="Gcr-tL-KHq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FBC-Dk-dOo"/>
+                            <constraint firstItem="Gcr-tL-KHq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ph1-8e-V7q"/>
+                            <constraint firstItem="iEA-9H-zO1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g5x-ym-6hd"/>
+                            <constraint firstItem="lre-FW-jlf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pg1-ud-8hA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="13.5" height="13.5"/>
+    </resources>
 </document>

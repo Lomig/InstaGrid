@@ -2,15 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ThirstySoftRegular.otf">
-            <string>ThirstySoftRegular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -20,17 +16,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SO-Ei-pad">
-                                <rect key="frame" x="140" y="426" width="134.5" height="44"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="smU-sB-2eu">
+                                <rect key="frame" x="145" y="428.5" width="124" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="oZ3-5F-3TC"/>
+                                    <constraint firstAttribute="width" constant="124" id="yZM-7p-I6T"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="wjo-mB-pJE">
+                                <rect key="frame" x="177" y="352.5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wjo-mB-pJE" secondAttribute="height" multiplier="1:1" id="0Qh-CN-0SJ"/>
+                                    <constraint firstAttribute="width" constant="60" id="67A-BE-M44"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3SO-Ei-pad" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="YFH-8s-Gts"/>
-                            <constraint firstItem="3SO-Ei-pad" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Z3l-YO-44a"/>
+                            <constraint firstItem="wjo-mB-pJE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Bf5-b9-5zU"/>
+                            <constraint firstItem="smU-sB-2eu" firstAttribute="top" secondItem="wjo-mB-pJE" secondAttribute="bottom" constant="16" id="T7l-p2-kTh"/>
+                            <constraint firstItem="smU-sB-2eu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ajI-lT-CUF"/>
+                            <constraint firstItem="smU-sB-2eu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="s6D-zi-CcK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,4 +47,8 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="60" height="60"/>
+        <image name="Instagrid" width="41.5" height="13"/>
+    </resources>
 </document>
