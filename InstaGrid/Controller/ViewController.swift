@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         connectNotifications()
     }
 
-    @objc func layoutChanged(_ notification: Notification) {
+    @objc func onLayoutChanged(_ notification: Notification) {
         let newLayout: CollageLayout = notification.userInfo![Notification.Key.layout] as! CollageLayout
 
         layout.setLayout(newLayout)
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
 
     @objc func onPicturesChanged(_ notification: Notification) {
-        let images: [UIImage?] = notification.userInfo![Collage.photosKey] as! [UIImage?]
+        let images: [UIImage?] = notification.userInfo![Notification.Key.images] as! [UIImage?]
 
         layout.largePicture1.replacePicture(with: images[0])
         layout.largePicture2.replacePicture(with: images[2])
@@ -64,14 +64,14 @@ class ViewController: UIViewController {
     private func connectNotifications() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(layoutChanged(_:)),
+            selector: #selector(onLayoutChanged(_:)),
             name: .layoutChanged,
             object: nil
         )
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(picturesChanged(_:)),
+            selector: #selector(onPicturesChanged(_:)),
             name: .pictureChanged,
             object: nil
         )
