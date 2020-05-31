@@ -108,13 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				9E2890DC2480E64D0040EA0D /* Colors.swift */,
+				9E1AAD02248440DB00CC5254 /* Notifications.swift */,
 				9E2890D72480E35A0040EA0D /* Fonts */,
 				9E2661862480DB1500041A60 /* Assets.xcassets */,
 				9E26618B2480DB1500041A60 /* Info.plist */,
 				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
 				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
 				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
-				9E1AAD02248440DB00CC5254 /* Notifications.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";

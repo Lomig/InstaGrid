@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     private let imagePicker: UIImagePickerController = UIImagePickerController()
     private var currentImageIndex: Int = 0
 
+    private var layoutAnimationVector: CGPoint = CGPoint(x: 0, y: -1)
+
 
     // Model
     private var collage: Collage = Collage()
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
     // View
     @IBOutlet private var layout: Layout!
     @IBOutlet private var layoutSelectors: UIView!
+    @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
 
     // Actions
     @IBAction private func didTapLayoutSelector1() { selectLayout(.layout1) }
@@ -30,6 +33,8 @@ class ViewController: UIViewController {
     @IBAction private func didTapPicture3() { startChangePicture(atIndex: 2) }
     @IBAction private func didTapPicture4() { startChangePicture(atIndex: 3) }
 
+    @IBAction private func didSWipe(_ gesture: UISwipeGestureRecognizer) { animateLayout() }
+
     // On Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +44,16 @@ class ViewController: UIViewController {
         imagePicker.sourceType = .photoLibrary
 
         connectNotifications()
+    }
+
+    @objc func onDeviceRotated() {
+        if UIDevice.current.orientation.isLandscape {
+            swipeGestureRecognizer.direction = .left
+            layoutAnimationVector = CGPoint(x: -1, y: 0)
+        } else {
+            swipeGestureRecognizer.direction = .up
+            layoutAnimationVector = CGPoint(x: 0, y: -1)
+        }
     }
 
     @objc func onLayoutChanged(_ notification: Notification) {
@@ -75,6 +90,13 @@ class ViewController: UIViewController {
             name: .pictureChanged,
             object: nil
         )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onDeviceRotated),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
     }
 
     private func clearLayoutSelectors() {
@@ -100,6 +122,31 @@ class ViewController: UIViewController {
 
     private func completeChangePicture(with image: UIImage) {
         collage.replacePicture(atIndex: currentImageIndex, withImage: image)
+    }
+
+    private func animateLayout(backwards: Bool = false) {
+        let vector: CGPoint = backwards ? CGPoint(x: -1 * layoutAnimationVector.x, y: -1 * layoutAnimationVector.y) : layoutAnimationVector
+        let screenSize: CGRect = UIScreen.main.bounds
+        let translation: CGAffineTransform = CGAffineTransform(translationX: vector.x * screenSize.width, y: vector.y * screenSize.height)
+
+        UIView.animate(
+            withDuration: 0.4,
+            animations: { self.layout.transform = translation },
+            completion: { success in
+                if success && !backwards { self.shareCollage() }
+            }
+        )
+    }
+
+    private func shareCollage() {
+        collage.result = layout.toImage()
+
+        let sharedView = UIActivityViewController(activityItems: [collage.result], applicationActivities: nil)
+        sharedView.completionWithItemsHandler = { (_: UIActivity.ActivityType?, _: Bool, _: [Any]?, _: Error?) in
+            self.animateLayout(backwards: true)
+            self.layout.transform = .identity
+        }
+        present(sharedView, animated: true)
     }
 }
 

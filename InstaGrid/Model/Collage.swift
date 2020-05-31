@@ -12,6 +12,7 @@ import UIKit
 class Collage {
     private var photos: [UIImage?] = Array(repeating: nil, count: 4)
     private var layout: CollageLayout = .layout1
+    var result: UIImage = UIImage()
 
     func replacePicture(atIndex index: Int, withImage image: UIImage) {
         photos[index] = image
