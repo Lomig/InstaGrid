@@ -77,8 +77,9 @@
                                             <constraint firstAttribute="height" constant="142" id="rff-MS-NNL"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="Ahi-Ks-XIC" id="LxQ-3b-DV8"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="SBk-0q-qMr"/>
+                                            <action selector="didTapPicture1" destination="BYZ-38-t0r" eventType="touchUpInside" id="IaS-2n-Chd"/>
+                                            <outlet property="image" destination="Ahi-Ks-XIC" id="qYT-O5-RjP"/>
+                                            <outlet property="plusButton" destination="g9C-Od-SZL" id="HrL-3K-vDM"/>
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nih-Td-ebs" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
@@ -106,8 +107,9 @@
                                             <constraint firstItem="354-kK-kXm" firstAttribute="centerY" secondItem="nih-Td-ebs" secondAttribute="centerY" id="up3-KE-AKL"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="4ej-e5-ELK" id="y5M-wf-1oS"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="Yfx-o7-C1b"/>
+                                            <action selector="didTapPicture3" destination="BYZ-38-t0r" eventType="touchUpInside" id="VaK-wX-rYF"/>
+                                            <outlet property="image" destination="YZP-QB-3Dm" id="ai0-PJ-8mT"/>
+                                            <outlet property="plusButton" destination="354-kK-kXm" id="q8k-bQ-cTe"/>
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ei-kV-lZz" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
@@ -136,8 +138,9 @@
                                             <constraint firstItem="LxP-JV-IXy" firstAttribute="top" secondItem="6Ei-kV-lZz" secondAttribute="top" id="t1Z-qq-7Dj"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="aYV-03-DAl" id="1zb-Tu-oo5"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="eNq-fZ-VOy"/>
+                                            <action selector="didTapPicture1" destination="BYZ-38-t0r" eventType="touchUpInside" id="D0m-co-mAK"/>
+                                            <outlet property="image" destination="LxP-JV-IXy" id="DSf-Mt-o0f"/>
+                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="L6o-5O-nQu"/>
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-af-Ask" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
@@ -166,8 +169,9 @@
                                             <constraint firstItem="hLM-DI-rsv" firstAttribute="centerX" secondItem="ecs-af-Ask" secondAttribute="centerX" id="vta-AN-N52"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="BRs-wk-vLB" id="HXl-2b-4ah"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="9Z7-Y5-gEA"/>
+                                            <action selector="didTapPicture2" destination="BYZ-38-t0r" eventType="touchUpInside" id="WCR-r9-bDe"/>
+                                            <outlet property="image" destination="BRs-wk-vLB" id="qi3-pp-ZcO"/>
+                                            <outlet property="plusButton" destination="hLM-DI-rsv" id="ZdF-Kw-wWo"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rR9-uc-b9c" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
@@ -196,8 +200,9 @@
                                             <constraint firstAttribute="width" secondItem="rR9-uc-b9c" secondAttribute="height" multiplier="1:1" id="yKQ-W4-uN6"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="YZP-QB-3Dm" id="hbb-Zz-vGP"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="Ri5-KU-zy0"/>
+                                            <action selector="didTapPicture3" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3W-Id-Egz"/>
+                                            <outlet property="image" destination="4ej-e5-ELK" id="cOT-vU-Zyk"/>
+                                            <outlet property="plusButton" destination="ng3-FP-wu3" id="JLa-Jn-nwb"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ck1-ey-pcB" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
@@ -226,8 +231,9 @@
                                             <constraint firstAttribute="bottom" secondItem="aYV-03-DAl" secondAttribute="bottom" id="zzk-JX-La1"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="image" destination="LxP-JV-IXy" id="yJj-py-i0A"/>
-                                            <outlet property="plusButton" destination="NXq-m2-QqE" id="dvo-Hu-DFe"/>
+                                            <action selector="didTapPicture4" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Vu-VJ-Soj"/>
+                                            <outlet property="image" destination="aYV-03-DAl" id="nxF-ZS-gcY"/>
+                                            <outlet property="plusButton" destination="Gqe-4j-OYt" id="SMR-dT-KFB"/>
                                         </connections>
                                     </view>
                                 </subviews>

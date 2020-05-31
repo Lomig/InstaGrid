@@ -17,7 +17,8 @@ class Collage {
     static let photosKey = "PICTURES"
     static let layoutKey = "LAYOUT"
 
-    func changePicture(atPosition index: Int) {
+    func replacePicture(atIndex index: Int, withImage image: UIImage) {
+        photos[index] = image
 
         let notification: Notification = Notification(
             name: Notification.Name(rawValue: "PicturesChanged"),
