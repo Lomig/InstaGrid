@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class InstagridView: UIView {
-    @IBOutlet var LayoutSelection: UIView!
 }
 
 

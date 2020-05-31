@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1AAD012483FBCF00CC5254 /* LayoutSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */; };
 		9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26617D2480DB1400041A60 /* AppDelegate.swift */; };
 		9E2661802480DB1400041A60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26617F2480DB1400041A60 /* SceneDelegate.swift */; };
 		9E2661822480DB1400041A60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2661812480DB1400041A60 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSelector.swift; sourceTree = "<group>"; };
 		9E26617A2480DB1400041A60 /* InstaGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E26617D2480DB1400041A60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E26617F2480DB1400041A60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				9EAF64A22482430200041357 /* InstagridView.swift */,
 				9EC7A4342480F93F001E7418 /* Layout.swift */,
 				9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */,
+				9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E2661822480DB1400041A60 /* ViewController.swift in Sources */,
+				9E1AAD012483FBCF00CC5254 /* LayoutSelector.swift in Sources */,
 				9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */,
 				9EAF64A32482430200041357 /* InstagridView.swift in Sources */,
 				9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */,

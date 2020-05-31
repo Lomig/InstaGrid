@@ -15,10 +15,16 @@ class Layout: UIView {
         backgroundColor = UIColor.InstaGrid.darkBlue
     }
 
-    @IBOutlet var largePicture1: UIView!
-    @IBOutlet var largePicture2: UIView!
-    @IBOutlet var smallPicture1: UIView!
-    @IBOutlet var smallPicture2: UIView!
-    @IBOutlet var smallPicture3: UIView!
-    @IBOutlet var smallPicture4: UIView!
+    @IBOutlet var largePicture1: PicturePlaceholder!
+    @IBOutlet var largePicture2: PicturePlaceholder!
+    @IBOutlet var smallPicture1: PicturePlaceholder!
+    @IBOutlet var smallPicture2: PicturePlaceholder!
+    @IBOutlet var smallPicture3: PicturePlaceholder!
+    @IBOutlet var smallPicture4: PicturePlaceholder!
+
+    func setLayout(_ layout: CollageLayout) {
+        self.subviews.enumerated().forEach { (index, placeHolder) in
+            placeHolder.isHidden = layout.hiddenElements[index]
+        }
+    }
 }
