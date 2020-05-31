@@ -33,14 +33,6 @@ class Collage {
         )
         NotificationCenter.default.post(notification)
     }
-
-    func create() {
-
-    }
-
-    func share() {
-
-    }
 }
 
 enum CollageLayout: Int {
