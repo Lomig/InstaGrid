@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E1AAD012483FBCF00CC5254 /* LayoutSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */; };
+		9E1AAD03248440DB00CC5254 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1AAD02248440DB00CC5254 /* Notifications.swift */; };
 		9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26617D2480DB1400041A60 /* AppDelegate.swift */; };
 		9E2661802480DB1400041A60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26617F2480DB1400041A60 /* SceneDelegate.swift */; };
 		9E2661822480DB1400041A60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2661812480DB1400041A60 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSelector.swift; sourceTree = "<group>"; };
+		9E1AAD02248440DB00CC5254 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		9E26617A2480DB1400041A60 /* InstaGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E26617D2480DB1400041A60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E26617F2480DB1400041A60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				9E2661952480DB8600041A60 /* InstaGrid.entitlements */,
 				9E26617F2480DB1400041A60 /* SceneDelegate.swift */,
 				9E26617D2480DB1400041A60 /* AppDelegate.swift */,
+				9E1AAD02248440DB00CC5254 /* Notifications.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1AAD03248440DB00CC5254 /* Notifications.swift in Sources */,
 				9E2661822480DB1400041A60 /* ViewController.swift in Sources */,
 				9E1AAD012483FBCF00CC5254 /* LayoutSelector.swift in Sources */,
 				9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */,

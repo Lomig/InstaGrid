@@ -13,15 +13,11 @@ class Collage {
     private var photos: [UIImage?] = Array(repeating: nil, count: 4)
     private var layout: CollageLayout = .layout1
 
-    // Notification userInfo keys
-    static let photosKey = "PICTURES"
-    static let layoutKey = "LAYOUT"
-
     func changePicture(atPosition index: Int) {
 
         let notification: Notification = Notification(
-            name: Notification.Name(rawValue: "PicturesChanged"),
-            userInfo: [Collage.photosKey: photos]
+            name: .pictureChanged,
+            userInfo: [Notification.Key.images: photos]
         )
         NotificationCenter.default.post(notification)
     }
@@ -30,8 +26,8 @@ class Collage {
         self.layout = layout
 
         let notification: Notification = Notification(
-            name: Notification.Name(rawValue: "LayoutChanged"),
-            userInfo: [Collage.layoutKey: self.layout]
+            name: .layoutChanged,
+            userInfo: [Notification.Key.layout: self.layout]
         )
         NotificationCenter.default.post(notification)
     }

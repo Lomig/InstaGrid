@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
 
     @objc func layoutChanged(_ notification: Notification) {
-        let newLayout: CollageLayout = notification.userInfo![Collage.layoutKey] as! CollageLayout
+        let newLayout: CollageLayout = notification.userInfo![Notification.Key.layout] as! CollageLayout
 
         layout.setLayout(newLayout)
 
@@ -42,19 +42,17 @@ class ViewController: UIViewController {
     }
 
     private func connectNotifications() {
-        var notificationName: NSNotification.Name = Notification.Name(rawValue: "LayoutChanged")
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(layoutChanged(_:)),
-            name: notificationName,
+            name: .layoutChanged,
             object: nil
         )
 
-        notificationName = Notification.Name(rawValue: "PicturesChanged")
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(picturesChanged(_:)),
-            name: notificationName,
+            name: .pictureChanged,
             object: nil
         )
     }
