@@ -14,7 +14,6 @@ class ViewController: UIViewController {
 
     private var layoutAnimationVector: CGPoint = CGPoint(x: 0, y: -1)
 
-
     // Model
     private var collage: Collage = Collage()
 
@@ -22,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet private var layout: Layout!
     @IBOutlet private var layoutSelectors: UIView!
     @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet private var swipeMessage: UILabel!
+    @IBOutlet private var swipeArrow: UIImageView!
 
     // Actions
     @IBAction private func didTapLayoutSelector1() { selectLayout(.layout1) }
@@ -33,47 +34,28 @@ class ViewController: UIViewController {
     @IBAction private func didTapPicture3() { startChangePicture(atIndex: 2) }
     @IBAction private func didTapPicture4() { startChangePicture(atIndex: 3) }
 
-    @IBAction private func didSWipe(_ gesture: UISwipeGestureRecognizer) { animateLayout() }
+    @IBAction private func didSwipe(_ gesture: UISwipeGestureRecognizer) { animateLayout() }
 
-    // On Load
+    // On View Load - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
+        view.backgroundColor = UIColor.InstaGrid.lightBlue
+        layout.backgroundColor = UIColor.InstaGrid.darkBlue
 
+        initializeImagePicker()
         connectNotifications()
     }
 
-    @objc func onDeviceRotated() {
-        if UIDevice.current.orientation.isLandscape {
-            swipeGestureRecognizer.direction = .left
-            layoutAnimationVector = CGPoint(x: -1, y: 0)
-        } else {
-            swipeGestureRecognizer.direction = .up
-            layoutAnimationVector = CGPoint(x: 0, y: -1)
-        }
-    }
 
-    @objc func onLayoutChanged(_ notification: Notification) {
-        let newLayout: CollageLayout = notification.userInfo![Notification.Key.layout] as! CollageLayout
+    //----------------------------------------------------------------------
+    // Initialization Helpers
+    //----------------------------------------------------------------------
 
-        layout.setLayout(newLayout)
-
-        clearLayoutSelectors()
-        checkLayoutSelector(forLayout: newLayout)
-    }
-
-    @objc func onPicturesChanged(_ notification: Notification) {
-        let images: [UIImage?] = notification.userInfo![Notification.Key.images] as! [UIImage?]
-
-        layout.largePicture1.replacePicture(with: images[0])
-        layout.largePicture2.replacePicture(with: images[2])
-        layout.smallPicture1.replacePicture(with: images[0])
-        layout.smallPicture2.replacePicture(with: images[1])
-        layout.smallPicture3.replacePicture(with: images[2])
-        layout.smallPicture4.replacePicture(with: images[3])
+    private func initializeImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
     }
 
     private func connectNotifications() {
@@ -99,6 +81,51 @@ class ViewController: UIViewController {
         )
     }
 
+
+    //----------------------------------------------------------------------
+    // On Notifications
+    //----------------------------------------------------------------------
+
+    @objc func onDeviceRotated() {
+        if UIDevice.current.orientation.isLandscape {
+            swipeGestureRecognizer.direction = .left
+            layoutAnimationVector = CGPoint(x: -1, y: 0)
+            swipeArrow.image = #imageLiteral(resourceName: "Arrow Left")
+            swipeMessage.text = "Swipe left to share"
+        } else {
+            swipeGestureRecognizer.direction = .up
+            layoutAnimationVector = CGPoint(x: 0, y: -1)
+            swipeArrow.image = #imageLiteral(resourceName: "Arrow Up")
+            swipeMessage.text = "Swipe up to share"
+        }
+    }
+
+    @objc func onLayoutChanged(_ notification: Notification) {
+        let newLayout: CollageLayout = notification.userInfo![Notification.Key.layout] as! CollageLayout
+
+        layout.setLayout(newLayout)
+
+        clearLayoutSelectors()
+        checkLayoutSelector(forLayout: newLayout)
+    }
+
+    @objc func onPicturesChanged(_ notification: Notification) {
+        let images: [UIImage?] = notification.userInfo![Notification.Key.images] as! [UIImage?]
+
+        layout.largePicture1.replacePicture(with: images[0])
+        layout.largePicture2.replacePicture(with: images[2])
+        layout.smallPicture1.replacePicture(with: images[0])
+        layout.smallPicture2.replacePicture(with: images[1])
+        layout.smallPicture3.replacePicture(with: images[2])
+        layout.smallPicture4.replacePicture(with: images[3])
+    }
+
+
+    //----------------------------------------------------------------------
+    // Layout Selection
+    //----------------------------------------------------------------------
+
+    // Remove all check mark on Layout Selectors
     private func clearLayoutSelectors() {
         layoutSelectors.subviews.forEach { subview in
             guard let layoutSelector = subview as? LayoutSelector else { return }
@@ -107,23 +134,40 @@ class ViewController: UIViewController {
         }
     }
 
+    // Add a check mark on a selected Layout
     private func checkLayoutSelector(forLayout layout: CollageLayout) {
         let selectors = layoutSelectors.subviews.compactMap { subview in subview as? LayoutSelector }
         selectors[layout.rawValue].check()
     }
 
+    // Tap Action: Select a Layout
     private func selectLayout(_ layout: CollageLayout) {
         collage.changeLayout(for: layout)
     }
 
+    //----------------------------------------------------------------------
+    // Image Selection
+    //----------------------------------------------------------------------
+
+    // Tap Action: Open the Image Picker
+    // We save the index where we want to save the Image once it's selected
     private func startChangePicture(atIndex index: Int) {
         present(imagePicker, animated: true, completion: { self.currentImageIndex = index })
     }
 
+    // Add the selected Image returned from the Image Picker
     private func completeChangePicture(with image: UIImage) {
         collage.replacePicture(atIndex: currentImageIndex, withImage: image)
     }
 
+
+    //----------------------------------------------------------------------
+    // Sharing Collage
+    //----------------------------------------------------------------------
+
+    // Animate the Collage as per requirement
+    // A Swipe move the collage away
+    // The same function is used "reversed" to make the collage come back
     private func animateLayout(backwards: Bool = false) {
         let vector: CGPoint = backwards ? CGPoint(x: -1 * layoutAnimationVector.x, y: -1 * layoutAnimationVector.y) : layoutAnimationVector
         let screenSize: CGRect = UIScreen.main.bounds
@@ -138,6 +182,7 @@ class ViewController: UIViewController {
         )
     }
 
+    // Create the image of the collage, and share it
     private func shareCollage() {
         collage.result = layout.toImage()
 
@@ -149,6 +194,8 @@ class ViewController: UIViewController {
         present(sharedView, animated: true)
     }
 }
+
+
 
 // Handling Image Picker through extension
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
