@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -21,17 +21,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstaGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="InstagridView" customModule="InstaGrid" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-tL-KHq">
-                                <rect key="frame" x="347" y="8" width="118" height="39"/>
+                                <rect key="frame" x="148" y="8" width="118" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="AAQ-oX-PuJ">
-                                <rect key="frame" x="399" y="-25.666666666666657" width="14" height="10"/>
+                                <rect key="frame" x="200" y="155" width="14" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="14" id="B9k-Zu-LfB"/>
                                     <constraint firstAttribute="height" constant="10" id="Kmj-JN-tgF"/>
@@ -54,13 +54,13 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-9H-zO1">
-                                <rect key="frame" x="325.66666666666669" y="-7.6666666666666572" width="161" height="29.333333333333332"/>
+                                <rect key="frame" x="126.66666666666669" y="173" width="161" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lre-FW-jlf" customClass="Layout" customModule="InstaGrid" customModuleProvider="target">
-                                <rect key="frame" x="256" y="37.666666666666657" width="300" height="300"/>
+                                <rect key="frame" x="57" y="218" width="300" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcX-OE-Q6e" customClass="PicturePlaceholder" customModule="InstaGrid" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="290" height="142"/>
@@ -275,10 +275,10 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Y3-l7-F85">
-                                <rect key="frame" x="44" y="258" width="724" height="80"/>
+                                <rect key="frame" x="0.0" y="640" width="414" height="80"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGD-1q-Lzf" customClass="Spacer" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="U5r-ol-ogL"/>
                                             <constraint firstAttribute="width" constant="80" id="r3J-dm-F1g"/>
@@ -296,7 +296,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-0W-x3w" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="121" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="43.666666666666657" y="0.0" width="80" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 1" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-eG-BbT">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -324,7 +324,7 @@
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uud-8m-l5w" customClass="Spacer" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="201" y="0.0" width="121" height="80"/>
+                                        <rect key="frame" x="123.66666666666667" y="0.0" width="43.333333333333329" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="KSB-Hb-TQ1"/>
                                             <constraint firstAttribute="height" constant="80" id="YQa-pl-Zdu"/>
@@ -342,7 +342,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-cR-mnl" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="322" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="167" y="0.0" width="80" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 2" translatesAutoresizingMaskIntoConstraints="NO" id="6ha-2r-8jM">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -370,7 +370,7 @@
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAp-tl-u5u" customClass="Spacer" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="402" y="0.0" width="121" height="80"/>
+                                        <rect key="frame" x="246.99999999999997" y="0.0" width="43.666666666666657" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="I5d-5Z-swK"/>
                                             <constraint firstAttribute="width" constant="80" id="lR9-qn-qKv"/>
@@ -388,7 +388,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpD-gz-nxo" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="523" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="290.66666666666669" y="0.0" width="80" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 3" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-4Q-S7j">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -416,7 +416,7 @@
                                         </connections>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-OM-YKG" customClass="Spacer" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="603" y="0.0" width="121" height="80"/>
+                                        <rect key="frame" x="370.66666666666669" y="0.0" width="43.333333333333314" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="GVK-X9-JSl"/>
                                             <constraint firstAttribute="width" constant="80" id="NLy-3V-NcB"/>
@@ -574,10 +574,12 @@
                             <constraint firstItem="7Y3-l7-F85" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d4x-Hh-mmy"/>
                             <constraint firstItem="iEA-9H-zO1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g5x-ym-6hd"/>
                             <constraint firstItem="iEA-9H-zO1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="32" id="kkB-Gd-YD8"/>
-                            <constraint firstItem="lre-FW-jlf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pg1-ud-8hA"/>
+                            <constraint firstItem="lre-FW-jlf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pg1-ud-8hA">
+                                <variation key="heightClass=compact" constant="64"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="7Y3-l7-F85" secondAttribute="bottom" id="w9U-hC-RII"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Y3-l7-F85" secondAttribute="trailing" id="xSf-1z-rKj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lre-FW-jlf" secondAttribute="bottom" constant="16" id="y96-N7-nFM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lre-FW-jlf" secondAttribute="bottom" constant="8" id="y96-N7-nFM"/>
                             <constraint firstItem="AAQ-oX-PuJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yP2-zA-BEW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
