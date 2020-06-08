@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 
-class LayoutSelector: UIControl {
+class LayoutSelector: UIButton {
     @IBOutlet var background: UIImageView!
     @IBOutlet var checkMark: UIImageView!
 
     func check() {
         checkMark.isHidden = false
+        self.isEnabled = false
     }
 
     func uncheck() {
         checkMark.isHidden = true
+        self.isEnabled = true
     }
 }
