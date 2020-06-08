@@ -19,7 +19,6 @@
 		9E2890DB2480E3800040EA0D /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */; };
 		9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2890DC2480E64D0040EA0D /* Colors.swift */; };
 		9E2890DF2480EAEF0040EA0D /* Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2890DE2480EAEF0040EA0D /* Collage.swift */; };
-		9EAF64A32482430200041357 /* InstagridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF64A22482430200041357 /* InstagridView.swift */; };
 		9EC7A4352480F93F001E7418 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7A4342480F93F001E7418 /* Layout.swift */; };
 		9EC7A437248100B6001E7418 /* PicturePlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +39,6 @@
 		9E2890DA2480E3800040EA0D /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		9E2890DC2480E64D0040EA0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9E2890DE2480EAEF0040EA0D /* Collage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Collage.swift; path = InstaGrid/Model/Collage.swift; sourceTree = SOURCE_ROOT; };
-		9EAF64A22482430200041357 /* InstagridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagridView.swift; sourceTree = "<group>"; };
 		9EC7A4342480F93F001E7418 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePlaceholder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +86,6 @@
 			children = (
 				9E2661882480DB1500041A60 /* LaunchScreen.storyboard */,
 				9E2661832480DB1400041A60 /* Main.storyboard */,
-				9EAF64A22482430200041357 /* InstagridView.swift */,
 				9EC7A4342480F93F001E7418 /* Layout.swift */,
 				9EC7A436248100B6001E7418 /* PicturePlaceholder.swift */,
 				9E1AAD002483FBCF00CC5254 /* LayoutSelector.swift */,
@@ -213,7 +210,6 @@
 				9E2661822480DB1400041A60 /* ViewController.swift in Sources */,
 				9E1AAD012483FBCF00CC5254 /* LayoutSelector.swift in Sources */,
 				9E2890DD2480E64D0040EA0D /* Colors.swift in Sources */,
-				9EAF64A32482430200041357 /* InstagridView.swift in Sources */,
 				9E26617E2480DB1400041A60 /* AppDelegate.swift in Sources */,
 				9E2890DF2480EAEF0040EA0D /* Collage.swift in Sources */,
 				9EC7A437248100B6001E7418 /* PicturePlaceholder.swift in Sources */,

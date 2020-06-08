@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
     // View
     @IBOutlet private var layout: Layout!
-    @IBOutlet private var layoutSelectors: UIView!
+    @IBOutlet private var layoutSelectors: UIStackView!
     @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private var swipeMessage: UILabel!
     @IBOutlet private var swipeArrow: UIImageView!
@@ -167,17 +167,17 @@ class ViewController: UIViewController {
 
     // Animate the Collage as per requirement
     // A Swipe move the collage away
-    // The same function is used "reversed" to make the collage come back
-    private func animateLayout(backwards: Bool = false) {
-        let vector: CGPoint = backwards ? CGPoint(x: -1 * layoutAnimationVector.x, y: -1 * layoutAnimationVector.y) : layoutAnimationVector
-        let screenSize: CGRect = UIScreen.main.bounds
-        let translation: CGAffineTransform = CGAffineTransform(translationX: vector.x * screenSize.width, y: vector.y * screenSize.height)
+    private func animateLayout() {
+        let translation: CGAffineTransform = CGAffineTransform(
+            translationX: layoutAnimationVector.x * self.view.frame.width,
+            y: layoutAnimationVector.y * self.view.frame.height
+        )
 
         UIView.animate(
-            withDuration: 0.4,
+            withDuration: 0.5,
             animations: { self.layout.transform = translation },
             completion: { success in
-                if success && !backwards { self.shareCollage() }
+                if success { self.shareCollage() }
             }
         )
     }
@@ -187,11 +187,17 @@ class ViewController: UIViewController {
         collage.result = layout.toImage()
 
         let sharedView = UIActivityViewController(activityItems: [collage.result], applicationActivities: nil)
-        sharedView.completionWithItemsHandler = { (_: UIActivity.ActivityType?, _: Bool, _: [Any]?, _: Error?) in
-            self.animateLayout(backwards: true)
-            self.layout.transform = .identity
+        // Needed to prevent a warning in iOS 13+
+        if #available(iOS 13.0, *) {
+            sharedView.isModalInPresentation = true
         }
-        present(sharedView, animated: true)
+        sharedView.completionWithItemsHandler = { (_, _, _, _) in
+            UIView.animate(
+                withDuration: 0.5,
+                animations: { self.layout.transform = .identity }
+            )
+        }
+        present(sharedView, animated: true, completion: nil)
     }
 }
 
