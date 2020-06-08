@@ -65,5 +65,9 @@
 		<string>Delm-Medium.otf</string>
 		<string>ThirstySoftRegular.otf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Instagrid needs access to your photos to create your collage</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Instagrid wants to save your collage to your device</string>
 </dict>
 </plist>

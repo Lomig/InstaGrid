@@ -12,6 +12,7 @@ import UIKit
 class Collage {
     private var photos: [UIImage?] = Array(repeating: nil, count: 4)
     private var layout: CollageLayout = .layout1
+    var result: UIImage = UIImage()
 
     func replacePicture(atIndex index: Int, withImage image: UIImage) {
         photos[index] = image
@@ -31,14 +32,6 @@ class Collage {
             userInfo: [Notification.Key.layout: self.layout]
         )
         NotificationCenter.default.post(notification)
-    }
-
-    func create() {
-
-    }
-
-    func share() {
-
     }
 }
 

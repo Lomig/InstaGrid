@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 
 class Layout: UIView {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        backgroundColor = UIColor.InstaGrid.darkBlue
-    }
-
     @IBOutlet var largePicture1: PicturePlaceholder!
     @IBOutlet var largePicture2: PicturePlaceholder!
     @IBOutlet var smallPicture1: PicturePlaceholder!
