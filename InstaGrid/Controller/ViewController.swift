@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LinkPresentation
 
 class ViewController: UIViewController {
     private let imagePicker: UIImagePickerController = UIImagePickerController()
@@ -270,14 +271,18 @@ class ViewController: UIViewController {
     private func shareCollage() {
         collage.result = layout.toImage()
 
-        let sharedView = UIActivityViewController(activityItems: [collage.result], applicationActivities: nil)
+        let sharedView: UIActivityViewController = UIActivityViewController(activityItems: [collage.result, self], applicationActivities: nil)
+
+        sharedView.popoverPresentationController?.sourceView = mainView
+        sharedView.completionWithItemsHandler = { (_, _, _, _) in
+            self.resetDragAnimation()
+        }
+
         // Needed to prevent a warning in iOS 13+
         if #available(iOS 13.0, *) {
             sharedView.isModalInPresentation = true
         }
-        sharedView.completionWithItemsHandler = { (_, _, _, _) in
-            self.resetDragAnimation()
-        }
+
         present(sharedView, animated: true, completion: nil)
     }
 }
@@ -300,3 +305,28 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
+
+// Handling ShareSheet through extension
+// MARK: - ActivityView Handler
+extension ViewController: UIActivityItemSource {
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return ""
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return nil
+    }
+
+    @available(iOS 13.0, *)
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let image = collage.result
+        let imageProvider = NSItemProvider(object: image)
+        let metadata = LPLinkMetadata()
+
+        metadata.imageProvider = imageProvider
+        metadata.title = "My new Instagrid Picture!"
+
+        return metadata
+    }
+}
