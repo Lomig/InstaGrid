@@ -698,6 +698,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstItem="AUA-eG-BbT" firstAttribute="centerY" secondItem="Ha1-0W-x3w" secondAttribute="centerY" id="0Hq-zh-4TE"/>
                                             <constraint firstAttribute="width" constant="80" id="2wl-BQ-ANd"/>
@@ -728,6 +731,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="width" secondItem="6ha-2r-8jM" secondAttribute="width" id="2yx-Dq-nWd"/>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="centerX" secondItem="hBE-cR-mnl" secondAttribute="centerX" id="ITt-09-pc1"/>
@@ -758,6 +764,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstItem="FIi-4Q-S7j" firstAttribute="centerY" secondItem="lpD-gz-nxo" secondAttribute="centerY" id="1hf-Op-xd1"/>
                                             <constraint firstItem="ftW-i4-pXx" firstAttribute="width" secondItem="FIi-4Q-S7j" secondAttribute="width" id="4m5-E2-Srl"/>

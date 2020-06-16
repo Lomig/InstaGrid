@@ -43,6 +43,8 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.InstaGrid.lightBlue
         layout.backgroundColor = UIColor.InstaGrid.darkBlue
 
+        checkLayoutSelector(forLayout: .layout1)
+
         initializeImagePicker()
         connectNotifications()
     }
@@ -103,7 +105,7 @@ class ViewController: UIViewController {
     @objc func onLayoutChanged(_ notification: Notification) {
         let newLayout: CollageLayout = notification.userInfo![Notification.Key.layout] as! CollageLayout
 
-        layout.setLayout(newLayout)
+        changeLayoutWithAnimation(forLayout: newLayout)
 
         clearLayoutSelectors()
         checkLayoutSelector(forLayout: newLayout)
@@ -143,6 +145,27 @@ class ViewController: UIViewController {
     // Tap Action: Select a Layout
     private func selectLayout(_ layout: CollageLayout) {
         collage.changeLayout(for: layout)
+    }
+
+    // Animation: Remove previous layout
+    private func changeLayoutWithAnimation(forLayout newLayout: CollageLayout) {
+        let scaling = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        UIView.animate(
+            withDuration: 0.5,
+            animations: { self.layout.transform = scaling },
+            completion: { success in
+                if success { self.showNewLayoutWithAnimation(forLayout: newLayout) }
+            }
+        )
+    }
+
+    private func showNewLayoutWithAnimation(forLayout newLayout: CollageLayout) {
+        self.layout.setLayout(newLayout)
+
+        UIView.animate(
+            withDuration: 0.5,
+            animations: { self.layout.transform = .identity }
+        )
     }
 
     //----------------------------------------------------------------------
