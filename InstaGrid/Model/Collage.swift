@@ -14,6 +14,11 @@ class Collage {
     private var layout: CollageLayout = .layout1
     var result: UIImage = UIImage()
 
+    // Make the model a singleton as we won't need several instances of it
+    static let shared: Collage = Collage()
+    // Private init for a singleton
+    private init() {}
+
     func replacePicture(atIndex index: Int, withImage image: UIImage) {
         photos[index] = image
 
@@ -39,7 +44,9 @@ enum CollageLayout: Int {
     case layout1, layout2, layout3
 
     // Should the layout hide a given picture?
-    // Top Big Picture, Bottom Big Picture, Top Left, Top Right, Bottom Left, Bottom Right
+    // [Top Big Picture, Bottom Big Picture, Top Left, Top Right, Bottom Left, Bottom Right]
+    // Example for layout1: (first row is a single big picture, second row is two small pictures)
+    // We should not hide the Top Big Picture nor the Bottom small ones, but all the others)
     var hiddenElements: [Bool] {
         switch self {
         case .layout1: return [false, true, true, true, false, false]

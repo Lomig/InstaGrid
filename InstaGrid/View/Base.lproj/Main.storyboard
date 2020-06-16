@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcr-tL-KHq">
-                                <rect key="frame" x="8" y="8" width="359" height="40"/>
+                                <rect key="frame" x="16" y="8" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6JX-IH-46k"/>
                                 </constraints>
@@ -40,10 +40,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mad-Y5-dpK">
-                                <rect key="frame" x="8" y="122.5" width="359" height="45"/>
+                                <rect key="frame" x="16" y="122.5" width="343" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AAQ-oX-PuJ">
-                                        <rect key="frame" x="172.5" y="0.0" width="14" height="10"/>
+                                        <rect key="frame" x="164.5" y="0.0" width="14" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="5kd-hM-ui2"/>
                                             <constraint firstAttribute="width" constant="14" id="aKH-aV-lnL"/>
@@ -51,7 +51,7 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-9H-zO1">
-                                        <rect key="frame" x="99.5" y="10" width="160.5" height="35"/>
+                                        <rect key="frame" x="91.5" y="10" width="160.5" height="35"/>
                                         <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -682,7 +682,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hbv-8V-QJ8">
-                                <rect key="frame" x="8" y="579" width="359" height="80"/>
+                                <rect key="frame" x="16" y="579" width="343" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-0W-x3w" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -718,7 +718,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-cR-mnl" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="139.5" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="131.5" y="0.0" width="80" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 2" translatesAutoresizingMaskIntoConstraints="NO" id="6ha-2r-8jM">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -751,7 +751,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpD-gz-nxo" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="279" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="263" y="0.0" width="80" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 3" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-4Q-S7j">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -808,7 +808,7 @@
                             <constraint firstAttribute="bottom" secondItem="Hbv-8V-QJ8" secondAttribute="bottom" constant="8" id="5mn-iO-oZq"/>
                             <constraint firstItem="mad-Y5-dpK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="16" id="7wH-Yn-vcJ"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Al3-kg-rqw"/>
-                            <constraint firstItem="lre-FW-jlf" firstAttribute="trailing" secondItem="Hbv-8V-QJ8" secondAttribute="trailing" constant="-29.333333333333371" id="BOm-Ed-Cmh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hbv-8V-QJ8" secondAttribute="trailing" constant="16" id="BOm-Ed-Cmh"/>
                             <constraint firstItem="mad-Y5-dpK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="16" id="DZ5-JM-unR"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fch-ZS-8Gv"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="leading" secondItem="mad-Y5-dpK" secondAttribute="trailing" constant="8" id="HfV-gq-tJ0"/>
@@ -816,21 +816,21 @@
                             <constraint firstItem="Gcr-tL-KHq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="O68-cJ-zSw"/>
                             <constraint firstItem="mad-Y5-dpK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="R08-JB-DYo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hbv-8V-QJ8" secondAttribute="bottom" constant="8" id="Wn8-kn-BPV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gcr-tL-KHq" secondAttribute="trailing" constant="8" id="XAY-ge-PfY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gcr-tL-KHq" secondAttribute="trailing" constant="16" id="XAY-ge-PfY"/>
                             <constraint firstItem="Hbv-8V-QJ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="XkE-DA-8jB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gcr-tL-KHq" secondAttribute="trailing" constant="8" id="YRt-Zn-iOe"/>
-                            <constraint firstItem="mad-Y5-dpK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="cZd-cH-7cw"/>
-                            <constraint firstItem="Hbv-8V-QJ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="csm-FE-qua"/>
+                            <constraint firstItem="mad-Y5-dpK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cZd-cH-7cw"/>
+                            <constraint firstItem="Hbv-8V-QJ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="csm-FE-qua"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="top" secondItem="mad-Y5-dpK" secondAttribute="bottom" constant="16" id="cy5-hw-fiy"/>
                             <constraint firstItem="mad-Y5-dpK" firstAttribute="top" secondItem="Gcr-tL-KHq" secondAttribute="bottom" id="do5-7f-r1Q"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fvG-6T-CY1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hbv-8V-QJ8" secondAttribute="trailing" constant="8" id="hjg-mM-dOp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hbv-8V-QJ8" secondAttribute="bottom" constant="8" id="jaJ-RE-6Tb"/>
-                            <constraint firstItem="Hbv-8V-QJ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="kAd-EK-GBr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mad-Y5-dpK" secondAttribute="trailing" constant="8" id="mL8-xE-8N2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hbv-8V-QJ8" secondAttribute="trailing" constant="16" id="hjg-mM-dOp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hbv-8V-QJ8" secondAttribute="bottom" constant="16" id="jaJ-RE-6Tb"/>
+                            <constraint firstItem="Hbv-8V-QJ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="kAd-EK-GBr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mad-Y5-dpK" secondAttribute="trailing" constant="16" id="mL8-xE-8N2"/>
                             <constraint firstItem="lre-FW-jlf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sUg-Je-oOv"/>
                             <constraint firstItem="Gcr-tL-KHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="sp1-lW-UCm"/>
-                            <constraint firstItem="Gcr-tL-KHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="u2Y-UG-aCO"/>
+                            <constraint firstItem="Gcr-tL-KHq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="u2Y-UG-aCO"/>
                             <constraint firstItem="Gcr-tL-KHq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="vj6-tE-ub7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -887,24 +887,16 @@
                                 <include reference="kAd-EK-GBr"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="EHq-bc-3VB" appends="YES" id="Uo5-hX-2bm"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="layout" destination="lre-FW-jlf" id="eg9-kS-kEL"/>
                         <outlet property="layoutSelectors" destination="Hbv-8V-QJ8" id="ox7-Da-3DG"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="1Go-aY-ibb"/>
                         <outlet property="swipeArrow" destination="AAQ-oX-PuJ" id="IKB-xj-ooH"/>
-                        <outlet property="swipeGestureRecognizer" destination="EHq-bc-3VB" id="PEw-oI-ytL"/>
                         <outlet property="swipeMessage" destination="iEA-9H-zO1" id="54v-G5-uEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="EHq-bc-3VB">
-                    <connections>
-                        <action selector="didSwipe:" destination="BYZ-38-t0r" id="17J-F5-Ldv"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="33.990147783251231" y="85.599999999999994"/>
         </scene>

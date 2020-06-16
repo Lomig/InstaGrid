@@ -22,4 +22,18 @@ class LayoutSelector: UIButton {
         checkMark.isHidden = true
         self.isEnabled = true
     }
+
+    // Make the button transparent on touch
+    override var isHighlighted: Bool {
+        didSet {
+            guard oldValue != self.isHighlighted else { return }
+
+            UIView.animate(
+                withDuration: 0.25,
+                delay: 0,
+                options: [.beginFromCurrentState, .allowUserInteraction],
+                animations: { self.alpha = self.isHighlighted ? 0.5 : 1 },
+                completion: nil)
+        }
+    }
 }
