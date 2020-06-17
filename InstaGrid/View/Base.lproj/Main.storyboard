@@ -681,21 +681,21 @@
                                     <outlet property="smallPicture4" destination="ck1-ey-pcB" id="Rzh-Ig-25M"/>
                                 </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hbv-8V-QJ8">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hbv-8V-QJ8">
                                 <rect key="frame" x="16" y="579" width="343" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha1-0W-x3w" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 1" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-eG-BbT">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="GIP-Ce-Rwd"/>
                                                     <constraint firstAttribute="height" constant="80" id="hlC-0A-F65"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="07T-XI-PZ4">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <accessibility key="accessibilityConfiguration">
@@ -703,14 +703,23 @@
                                         </accessibility>
                                         <constraints>
                                             <constraint firstItem="AUA-eG-BbT" firstAttribute="centerY" secondItem="Ha1-0W-x3w" secondAttribute="centerY" id="0Hq-zh-4TE"/>
-                                            <constraint firstAttribute="width" constant="80" id="2wl-BQ-ANd"/>
                                             <constraint firstItem="07T-XI-PZ4" firstAttribute="height" secondItem="AUA-eG-BbT" secondAttribute="height" id="MgY-GD-qOA"/>
                                             <constraint firstItem="07T-XI-PZ4" firstAttribute="centerX" secondItem="Ha1-0W-x3w" secondAttribute="centerX" id="bIW-1D-0s4"/>
+                                            <constraint firstAttribute="width" constant="80" id="c34-tR-7It"/>
                                             <constraint firstItem="07T-XI-PZ4" firstAttribute="width" secondItem="AUA-eG-BbT" secondAttribute="width" id="gyT-6a-ia0"/>
-                                            <constraint firstAttribute="height" constant="80" id="hnA-I1-DEh"/>
                                             <constraint firstItem="07T-XI-PZ4" firstAttribute="centerY" secondItem="Ha1-0W-x3w" secondAttribute="centerY" id="jGz-Qy-FoV"/>
                                             <constraint firstItem="AUA-eG-BbT" firstAttribute="centerX" secondItem="Ha1-0W-x3w" secondAttribute="centerX" id="wbW-vH-fgn"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="c34-tR-7It"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="c34-tR-7It"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <action selector="didTapLayoutSelector1" destination="BYZ-38-t0r" eventType="touchUpInside" id="HbX-1r-taC"/>
                                             <outlet property="background" destination="AUA-eG-BbT" id="Lv8-aM-wem"/>
@@ -718,32 +727,41 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-cR-mnl" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="131.5" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="117" y="0.0" width="109" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 2" translatesAutoresizingMaskIntoConstraints="NO" id="6ha-2r-8jM">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="Kov-Gx-Q88"/>
                                                     <constraint firstAttribute="width" constant="80" id="Uqt-Rn-2ZI"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="pPg-2n-iX0">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="01U-HL-zje"/>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="width" secondItem="6ha-2r-8jM" secondAttribute="width" id="2yx-Dq-nWd"/>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="centerX" secondItem="hBE-cR-mnl" secondAttribute="centerX" id="ITt-09-pc1"/>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="height" secondItem="6ha-2r-8jM" secondAttribute="height" id="bzP-wk-Tua"/>
-                                            <constraint firstAttribute="height" constant="80" id="hKM-k0-sov"/>
                                             <constraint firstItem="6ha-2r-8jM" firstAttribute="centerY" secondItem="hBE-cR-mnl" secondAttribute="centerY" id="k3S-YJ-j5E"/>
                                             <constraint firstItem="pPg-2n-iX0" firstAttribute="centerY" secondItem="hBE-cR-mnl" secondAttribute="centerY" id="nWL-Ky-FDt"/>
-                                            <constraint firstAttribute="width" constant="80" id="pne-PR-wFg"/>
                                             <constraint firstItem="6ha-2r-8jM" firstAttribute="centerX" secondItem="hBE-cR-mnl" secondAttribute="centerX" id="yLV-oQ-IZs"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="01U-HL-zje"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="01U-HL-zje"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <action selector="didTapLayoutSelector2" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXV-BD-7Xe"/>
                                             <outlet property="background" destination="6ha-2r-8jM" id="BIe-qT-Z9S"/>
@@ -751,32 +769,41 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpD-gz-nxo" customClass="LayoutSelector" customModule="InstaGrid" customModuleProvider="target">
-                                        <rect key="frame" x="263" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="234" y="0.0" width="109" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout 3" translatesAutoresizingMaskIntoConstraints="NO" id="FIi-4Q-S7j">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="9ob-Rg-tKN"/>
                                                     <constraint firstAttribute="width" constant="80" id="bDL-OY-ZdI"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-i4-pXx">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <rect key="frame" x="14.5" y="0.0" width="80" height="80"/>
                                             </imageView>
                                         </subviews>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="057-1K-DKi"/>
                                             <constraint firstItem="FIi-4Q-S7j" firstAttribute="centerY" secondItem="lpD-gz-nxo" secondAttribute="centerY" id="1hf-Op-xd1"/>
                                             <constraint firstItem="ftW-i4-pXx" firstAttribute="width" secondItem="FIi-4Q-S7j" secondAttribute="width" id="4m5-E2-Srl"/>
-                                            <constraint firstAttribute="height" constant="80" id="S8H-EG-r52"/>
                                             <constraint firstItem="ftW-i4-pXx" firstAttribute="centerX" secondItem="lpD-gz-nxo" secondAttribute="centerX" id="dDB-rf-hq2"/>
                                             <constraint firstItem="ftW-i4-pXx" firstAttribute="centerY" secondItem="lpD-gz-nxo" secondAttribute="centerY" id="dGv-Wi-mnN"/>
-                                            <constraint firstAttribute="width" constant="80" id="fad-EM-hZc"/>
                                             <constraint firstItem="ftW-i4-pXx" firstAttribute="height" secondItem="FIi-4Q-S7j" secondAttribute="height" id="j4F-1A-OXb"/>
                                             <constraint firstItem="FIi-4Q-S7j" firstAttribute="centerX" secondItem="lpD-gz-nxo" secondAttribute="centerX" id="zdj-el-J7z"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="057-1K-DKi"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="057-1K-DKi"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <action selector="didTapLayoutSelector3" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eje-b2-kCs"/>
                                             <outlet property="background" destination="FIi-4Q-S7j" id="MzF-ZS-h9A"/>
@@ -858,6 +885,7 @@
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="3hi-Hx-24P"/>
+                                <exclude reference="BOm-Ed-Cmh"/>
                                 <exclude reference="Mcv-sr-GOQ"/>
                                 <exclude reference="Wn8-kn-BPV"/>
                                 <exclude reference="XAY-ge-PfY"/>
@@ -875,7 +903,6 @@
                                 <exclude reference="cZd-cH-7cw"/>
                                 <exclude reference="do5-7f-r1Q"/>
                                 <exclude reference="Al3-kg-rqw"/>
-                                <exclude reference="BOm-Ed-Cmh"/>
                                 <include reference="Fch-ZS-8Gv"/>
                                 <include reference="HfV-gq-tJ0"/>
                                 <exclude reference="cy5-hw-fiy"/>
