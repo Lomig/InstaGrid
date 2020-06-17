@@ -12,6 +12,7 @@ import LinkPresentation
 class ViewController: UIViewController {
     private let imagePicker: UIImagePickerController = UIImagePickerController()
     private var currentImageIndex: Int = 0
+    private var result: UIImage = UIImage()
 
     private var layoutAnimationVector: CGPoint = CGPoint(x: 0, y: 1)
 
@@ -83,6 +84,13 @@ class ViewController: UIViewController {
             name: UIDevice.orientationDidChangeNotification,
             object: nil
         )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onCollageShare),
+            name: .shareCollage,
+            object: nil
+        )
     }
 
 
@@ -120,6 +128,24 @@ class ViewController: UIViewController {
         layout.smallPicture2.replacePicture(with: images[1])
         layout.smallPicture3.replacePicture(with: images[2])
         layout.smallPicture4.replacePicture(with: images[3])
+    }
+
+    @objc func onCollageShare(_ notification: Notification) {
+        let canShare: Bool = notification.userInfo![Notification.Key.shareStatus] as! Bool
+
+        if canShare {
+            shareCollage()
+            finishDragAnimation()
+
+        } else {
+            resetDragAnimation()
+            let alert: UIAlertController = UIAlertController(title: "Error 😕",
+                                                             message: "Your Instagrid is not complete!",
+                                                             preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default))
+
+            present(alert, animated: true, completion: nil)
+        }
     }
 
 
@@ -230,8 +256,7 @@ class ViewController: UIViewController {
         let translationInViewY: CGFloat = abs(gesture.translation(in: mainView).y * layoutAnimationVector.y / mainView.bounds.height)
 
         if translationInViewX > threshold || translationInViewY > threshold {
-            shareCollage()
-            finishDragAnimation()
+            collage.share()
         } else {
             resetDragAnimation()
         }
@@ -257,8 +282,8 @@ class ViewController: UIViewController {
         UIView.animate(
             withDuration: 0.5,
             delay: 0.0,
-            usingSpringWithDamping: 0.3,
-            initialSpringVelocity: 0.9,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
             animations: {
                 self.layout.transform = .identity
                 self.swipeMessage.transform = .identity
@@ -269,21 +294,20 @@ class ViewController: UIViewController {
 
     // Create the image of the collage, and share it
     private func shareCollage() {
-        collage.result = layout.toImage()
+        result = layout.toImage()
+        let shareView: UIActivityViewController = UIActivityViewController(activityItems: [result, self], applicationActivities: nil)
 
-        let sharedView: UIActivityViewController = UIActivityViewController(activityItems: [collage.result, self], applicationActivities: nil)
-
-        sharedView.popoverPresentationController?.sourceView = mainView
-        sharedView.completionWithItemsHandler = { (_, _, _, _) in
+        shareView.popoverPresentationController?.sourceView = mainView
+        shareView.completionWithItemsHandler = { (_, _, _, _) in
             self.resetDragAnimation()
         }
 
         // Needed to prevent a warning in iOS 13+
         if #available(iOS 13.0, *) {
-            sharedView.isModalInPresentation = true
+            shareView.isModalInPresentation = true
         }
 
-        present(sharedView, animated: true, completion: nil)
+        present(shareView, animated: true, completion: nil)
     }
 }
 
@@ -306,8 +330,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 }
 
 
-// Handling ShareSheet through extension
 // MARK: - ActivityView Handler
+// Handling ShareSheet through extension
 extension ViewController: UIActivityItemSource {
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
@@ -320,9 +344,9 @@ extension ViewController: UIActivityItemSource {
 
     @available(iOS 13.0, *)
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        let image = collage.result
-        let imageProvider = NSItemProvider(object: image)
-        let metadata = LPLinkMetadata()
+        let image: UIImage = result
+        let imageProvider: NSItemProvider = NSItemProvider(object: image)
+        let metadata: LPLinkMetadata = LPLinkMetadata()
 
         metadata.imageProvider = imageProvider
         metadata.title = "My new Instagrid Picture!"

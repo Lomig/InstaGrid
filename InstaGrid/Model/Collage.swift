@@ -12,7 +12,6 @@ import UIKit
 class Collage {
     private var photos: [UIImage?] = Array(repeating: nil, count: 4)
     private var layout: CollageLayout = .layout1
-    var result: UIImage = UIImage()
 
     // Make the model a singleton as we won't need several instances of it
     static let shared: Collage = Collage()
@@ -38,6 +37,18 @@ class Collage {
         )
         NotificationCenter.default.post(notification)
     }
+
+    func share() {
+        // Share only if the required photos are up and running
+        // It's handled throught the userInfo notification
+        let isComplete: Bool = zip(layout.hasPicture, photos).first { photoMandatory, photo in photoMandatory && photo == nil } == nil
+
+        let notification: Notification = Notification(
+                    name: .shareCollage,
+                    userInfo: [Notification.Key.shareStatus: isComplete]
+                )
+        NotificationCenter.default.post(notification)
+    }
 }
 
 enum CollageLayout: Int {
@@ -52,6 +63,15 @@ enum CollageLayout: Int {
         case .layout1: return [false, true, true, true, false, false]
         case .layout2: return [true, false, false, false, true, true]
         case .layout3: return [true, true, false, false, false, false]
+        }
+    }
+
+    // Used to check if we have enough images to share for each layout
+    var hasPicture: [Bool] {
+        switch self {
+        case .layout1: return [true, false, true, true]
+        case .layout2: return [true, true, true, false]
+        case .layout3: return [true, true, true, true]
         }
     }
 }
