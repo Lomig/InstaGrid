@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         layout.backgroundColor = UIColor.InstaGrid.darkBlue
 
         checkLayoutSelector(forLayout: .layout1)
+        onDeviceRotated()
 
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(animateLayout(_:)))
         self.mainView.addGestureRecognizer(panRecognizer)
@@ -128,6 +129,8 @@ class ViewController: UIViewController {
         layout.smallPicture2.replacePicture(with: images[1])
         layout.smallPicture3.replacePicture(with: images[2])
         layout.smallPicture4.replacePicture(with: images[3])
+
+        result = layout.toImage()
     }
 
     @objc func onCollageShare(_ notification: Notification) {
@@ -135,8 +138,6 @@ class ViewController: UIViewController {
 
         if canShare {
             shareCollage()
-            finishDragAnimation()
-
         } else {
             resetDragAnimation()
             let alert: UIAlertController = UIAlertController(title: "Error 😕",
@@ -256,6 +257,7 @@ class ViewController: UIViewController {
         let translationInViewY: CGFloat = abs(gesture.translation(in: mainView).y * layoutAnimationVector.y / mainView.bounds.height)
 
         if translationInViewX > threshold || translationInViewY > threshold {
+            finishDragAnimation()
             collage.share()
         } else {
             resetDragAnimation()
@@ -264,17 +266,17 @@ class ViewController: UIViewController {
 
     // Finish the animation if we are to create the Collage
     private func finishDragAnimation() {
-        let translation: CGAffineTransform = CGAffineTransform(translationX: -layoutAnimationVector.x * mainView.frame.width,
-                                                                          y: -layoutAnimationVector.y * mainView.frame.height)
+            let translation: CGAffineTransform = CGAffineTransform(translationX: -layoutAnimationVector.x * mainView.frame.width,
+                                                                   y: -layoutAnimationVector.y * mainView.frame.height)
 
-        UIView.animate(
-            withDuration: 0.5,
-            animations: {
-                self.layout.transform = translation
-                self.swipeMessage.transform = translation
-                self.swipeArrow.transform = translation
-            }
-        )
+            UIView.animate(
+                withDuration: 0.2,
+                animations: {
+                    self.layout.transform = translation
+                    self.swipeMessage.transform = translation
+                    self.swipeArrow.transform = translation
+                }
+            )
     }
 
     // Put back the views when sharing is cancelled or completed
@@ -294,9 +296,7 @@ class ViewController: UIViewController {
 
     // Create the image of the collage, and share it
     private func shareCollage() {
-        result = layout.toImage()
         let shareView: UIActivityViewController = UIActivityViewController(activityItems: [result, self], applicationActivities: nil)
-
         shareView.popoverPresentationController?.sourceView = mainView
         shareView.completionWithItemsHandler = { (_, _, _, _) in
             self.resetDragAnimation()
