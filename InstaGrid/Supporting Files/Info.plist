@@ -18,8 +18,19 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.photography</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Instagrid wants to save your collage to your device</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Instagrid needs access to your photos to create your collage</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Delm-Medium.otf</string>
+		<string>ThirstySoftRegular.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,14 +71,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Delm-Medium.otf</string>
-		<string>ThirstySoftRegular.otf</string>
-	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Instagrid needs access to your photos to create your collage</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Instagrid wants to save your collage to your device</string>
 </dict>
 </plist>

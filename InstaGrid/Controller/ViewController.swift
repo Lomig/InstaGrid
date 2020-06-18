@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import LinkPresentation
 
 class ViewController: UIViewController {
     private let imagePicker: UIImagePickerController = UIImagePickerController()
     private var currentImageIndex: Int = 0
+    private var result: UIImage = UIImage()
 
-    private var layoutAnimationVector: CGPoint = CGPoint(x: 0, y: -1)
+    private var layoutAnimationVector: CGPoint = CGPoint(x: 0, y: 1)
 
     // Model
-    private var collage: Collage = Collage()
+    private var collage: Collage = Collage.shared
 
     // View
+    @IBOutlet private var mainView: UIView!
     @IBOutlet private var layout: Layout!
     @IBOutlet private var layoutSelectors: UIStackView!
-    @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet private var swipeMessage: UILabel!
     @IBOutlet private var swipeArrow: UIImageView!
 
@@ -34,8 +36,6 @@ class ViewController: UIViewController {
     @IBAction private func didTapPicture3() { startChangePicture(atIndex: 2) }
     @IBAction private func didTapPicture4() { startChangePicture(atIndex: 3) }
 
-    @IBAction private func didSwipe(_ gesture: UISwipeGestureRecognizer) { animateLayout() }
-
     // On View Load - Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,10 @@ class ViewController: UIViewController {
         layout.backgroundColor = UIColor.InstaGrid.darkBlue
 
         checkLayoutSelector(forLayout: .layout1)
+        onDeviceRotated()
+
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(animateLayout(_:)))
+        self.mainView.addGestureRecognizer(panRecognizer)
 
         initializeImagePicker()
         connectNotifications()
@@ -51,7 +55,7 @@ class ViewController: UIViewController {
 
 
     //----------------------------------------------------------------------
-    // Initialization Helpers
+    // MARK: - Initialization Helpers
     //----------------------------------------------------------------------
 
     private func initializeImagePicker() {
@@ -81,22 +85,27 @@ class ViewController: UIViewController {
             name: UIDevice.orientationDidChangeNotification,
             object: nil
         )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(onCollageShare),
+            name: .shareCollage,
+            object: nil
+        )
     }
 
 
     //----------------------------------------------------------------------
-    // On Notifications
+    // MARK: - On Notifications
     //----------------------------------------------------------------------
 
     @objc func onDeviceRotated() {
         if UIDevice.current.orientation.isLandscape {
-            swipeGestureRecognizer.direction = .left
-            layoutAnimationVector = CGPoint(x: -1, y: 0)
+            layoutAnimationVector = CGPoint(x: 1, y: 0)
             swipeArrow.image = #imageLiteral(resourceName: "Arrow Left")
             swipeMessage.text = "Swipe left to share"
         } else {
-            swipeGestureRecognizer.direction = .up
-            layoutAnimationVector = CGPoint(x: 0, y: -1)
+            layoutAnimationVector = CGPoint(x: 0, y: 1)
             swipeArrow.image = #imageLiteral(resourceName: "Arrow Up")
             swipeMessage.text = "Swipe up to share"
         }
@@ -120,11 +129,29 @@ class ViewController: UIViewController {
         layout.smallPicture2.replacePicture(with: images[1])
         layout.smallPicture3.replacePicture(with: images[2])
         layout.smallPicture4.replacePicture(with: images[3])
+
+        result = layout.toImage()
+    }
+
+    @objc func onCollageShare(_ notification: Notification) {
+        let canShare: Bool = notification.userInfo![Notification.Key.shareStatus] as! Bool
+
+        if canShare {
+            shareCollage()
+        } else {
+            resetDragAnimation()
+            let alert: UIAlertController = UIAlertController(title: "Error 😕",
+                                                             message: "Your Instagrid is not complete!",
+                                                             preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: .default))
+
+            present(alert, animated: true, completion: nil)
+        }
     }
 
 
     //----------------------------------------------------------------------
-    // Layout Selection
+    // MARK: - Layout Selection
     //----------------------------------------------------------------------
 
     // Remove all check mark on Layout Selectors
@@ -132,6 +159,7 @@ class ViewController: UIViewController {
         layoutSelectors.subviews.forEach { subview in
             guard let layoutSelector = subview as? LayoutSelector else { return }
 
+            layoutSelector.showsTouchWhenHighlighted = true
             layoutSelector.uncheck()
         }
     }
@@ -151,7 +179,7 @@ class ViewController: UIViewController {
     private func changeLayoutWithAnimation(forLayout newLayout: CollageLayout) {
         let scaling = CGAffineTransform(scaleX: 0.01, y: 0.01)
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.3,
             animations: { self.layout.transform = scaling },
             completion: { success in
                 if success { self.showNewLayoutWithAnimation(forLayout: newLayout) }
@@ -159,17 +187,18 @@ class ViewController: UIViewController {
         )
     }
 
+    // Animation: Show new layout
     private func showNewLayoutWithAnimation(forLayout newLayout: CollageLayout) {
         self.layout.setLayout(newLayout)
 
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.3,
             animations: { self.layout.transform = .identity }
         )
     }
 
     //----------------------------------------------------------------------
-    // Image Selection
+    // MARK: - Image Selection
     //----------------------------------------------------------------------
 
     // Tap Action: Open the Image Picker
@@ -185,48 +214,107 @@ class ViewController: UIViewController {
 
 
     //----------------------------------------------------------------------
-    // Sharing Collage
+    // MARK: - Sharing Collage
     //----------------------------------------------------------------------
 
     // Animate the Collage as per requirement
     // A Swipe move the collage away
-    private func animateLayout() {
-        let translation: CGAffineTransform = CGAffineTransform(
-            translationX: layoutAnimationVector.x * self.view.frame.width,
-            y: layoutAnimationVector.y * self.view.frame.height
-        )
+    @objc private func animateLayout(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed:
+            onDragViewWith(gesture: sender)
+        case .cancelled, .ended:
+            onDragFinishWith(gesture: sender)
+        default:
+            return
+        }
 
+    }
+
+    // Handle Drag Animation
+    private func onDragViewWith(gesture: UIPanGestureRecognizer) {
+        let translation: CGPoint = gesture.translation(in: layout)
+
+        // Drag can only work upwards (portrait) or leftwards (landscape)
+        let translationX: CGFloat = translation.x > 0 ? 0 : translation.x * layoutAnimationVector.x
+        let translationY: CGFloat = translation.y > 0 ? 0 : translation.y * layoutAnimationVector.y
+        let transform: CGAffineTransform = CGAffineTransform(translationX: translationX,
+                                                                        y: translationY)
+
+        layout.transform = transform
+        swipeMessage.transform = transform
+        swipeArrow.transform = transform
+    }
+
+    // When finish dragging the view, check if we cant to share the Collage or not
+    // It depends it we dragged it enough
+    private func onDragFinishWith(gesture: UIPanGestureRecognizer) {
+        // How much drag do we need to consider sharing, in percent?
+        let threshold: CGFloat = 0.25
+
+        // How much did we drag the view on the screen, in percent?
+        let translationInViewX: CGFloat = abs(gesture.translation(in: mainView).x * layoutAnimationVector.x / mainView.bounds.width)
+        let translationInViewY: CGFloat = abs(gesture.translation(in: mainView).y * layoutAnimationVector.y / mainView.bounds.height)
+
+        if translationInViewX > threshold || translationInViewY > threshold {
+            finishDragAnimation()
+            collage.share()
+        } else {
+            resetDragAnimation()
+        }
+    }
+
+    // Finish the animation if we are to create the Collage
+    private func finishDragAnimation() {
+            let translation: CGAffineTransform = CGAffineTransform(translationX: -layoutAnimationVector.x * mainView.frame.width,
+                                                                   y: -layoutAnimationVector.y * mainView.frame.height)
+
+            UIView.animate(
+                withDuration: 0.2,
+                animations: {
+                    self.layout.transform = translation
+                    self.swipeMessage.transform = translation
+                    self.swipeArrow.transform = translation
+                }
+            )
+    }
+
+    // Put back the views when sharing is cancelled or completed
+    private func resetDragAnimation() {
         UIView.animate(
             withDuration: 0.5,
-            animations: { self.layout.transform = translation },
-            completion: { success in
-                if success { self.shareCollage() }
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            animations: {
+                self.layout.transform = .identity
+                self.swipeMessage.transform = .identity
+                self.swipeArrow.transform = .identity
             }
         )
     }
 
     // Create the image of the collage, and share it
     private func shareCollage() {
-        collage.result = layout.toImage()
+        let shareView: UIActivityViewController = UIActivityViewController(activityItems: [result, self], applicationActivities: nil)
+        shareView.popoverPresentationController?.sourceView = mainView
+        shareView.completionWithItemsHandler = { (_, _, _, _) in
+            self.resetDragAnimation()
+        }
 
-        let sharedView = UIActivityViewController(activityItems: [collage.result], applicationActivities: nil)
         // Needed to prevent a warning in iOS 13+
         if #available(iOS 13.0, *) {
-            sharedView.isModalInPresentation = true
+            shareView.isModalInPresentation = true
         }
-        sharedView.completionWithItemsHandler = { (_, _, _, _) in
-            UIView.animate(
-                withDuration: 0.5,
-                animations: { self.layout.transform = .identity }
-            )
-        }
-        present(sharedView, animated: true, completion: nil)
+
+        present(shareView, animated: true, completion: nil)
     }
 }
 
 
 
 // Handling Image Picker through extension
+// MARK: - Image Picker Handler
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -241,3 +329,28 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
+
+// MARK: - ActivityView Handler
+// Handling ShareSheet through extension
+extension ViewController: UIActivityItemSource {
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return ""
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return nil
+    }
+
+    @available(iOS 13.0, *)
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let image: UIImage = result
+        let imageProvider: NSItemProvider = NSItemProvider(object: image)
+        let metadata: LPLinkMetadata = LPLinkMetadata()
+
+        metadata.imageProvider = imageProvider
+        metadata.title = "My new Instagrid Picture!"
+
+        return metadata
+    }
+}
